@@ -12,7 +12,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class lectura_xlsx {
 
-    public static void main(String[] args) {
+    public void lecture(){
         String nombreArchivo = "Inventario.xlsx";
         String rutaArchivo = "C:\\Ficheros-Excel\\" + nombreArchivo;
         String hoja = "Hoja1";
