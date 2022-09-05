@@ -10,7 +10,6 @@ import java.util.logging.Logger;
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
-import app.model.encrypt_password;
 
 public class empleado {
 
@@ -20,7 +19,9 @@ public class empleado {
 
     Statement stmt = null;
 
-    conection javaPostgreSQLBasic = new conection(); 
+    conection javaPostgreSQLBasic = new conection();
+    
+    schema sh = new schema();
 
     conection connection = new conection(); 
     encrypt_password encriptador = new encrypt_password();
@@ -70,7 +71,8 @@ public class empleado {
         Boolean validator = false;
 
         try{
-            c = javaPostgreSQLBasic.getConnection();
+            c = sh.connection();
+            javaPostgreSQLBasic.setConnection(c);
             stmt = c.createStatement(); 
 
             String sql = "Select * From User" + "WHERE(user_name = '"+user_name+"' AND password = '"+desencrypt_password(password)+"'";
@@ -88,12 +90,4 @@ public class empleado {
     
         return validator;
     }
-
-
-
-   
-
-    
-    
-    
 }
