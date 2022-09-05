@@ -22,7 +22,6 @@ public class schema {
             } catch (ClassNotFoundException ex) {
                 System.out.println("Error al registrar el driver de PostgreSQL: " + ex);
             }
-            System.out.print("paso");
             // Database connect
             // Conectamos con la base de datos
             c = DriverManager.getConnection(
@@ -49,7 +48,7 @@ public class schema {
     
             stmt = c.createStatement(); 
     
-            CreateSql = "Create Table Test(id int primary key, name varchar, address text) ";
+            CreateSql = "Create Table Usuario(user_id SERIAL NOT NULL PRIMARY KEY, name varchar, user_name varchar(225) NOT NULL UNIQUE, password varchar) ";
     
             stmt.executeUpdate(CreateSql);
     
