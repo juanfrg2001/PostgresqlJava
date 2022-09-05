@@ -10,8 +10,9 @@ public class aplmain {
         schema Schema = new schema();
         empleado_controller cont_user = new empleado_controller();
         Schema.connectDatabase(); 
-        // Schema.createTables();
-        cont_user.create("Juan", "juan", "felipe");
+        //Schema.createTables();
+        cont_user.create("juan", "juan","felipe1972");
+
 
 
 

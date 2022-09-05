@@ -22,7 +22,6 @@ public class empleado_controller {
         try{
             c = Schema.connection();
             javaPostgreSQLBasic.setConnection(c);
-
             stmt = c.createStatement(); 
             System.out.println("Opened database successfully");
             String encrypt = user.encrypt_password(contrasena);
