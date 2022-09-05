@@ -48,7 +48,7 @@ public class schema {
     
             stmt = c.createStatement(); 
     
-            CreateSql = "Create Table Usuario(id int primary key, name varchar, user_name varchar(225) NOT NULL UNIQUE, password varchar) ";
+            CreateSql = "Create Table Usuario(user_id SERIAL NOT NULL PRIMARY KEY, name varchar, user_name varchar(225) NOT NULL UNIQUE, password varchar) ";
     
             stmt.executeUpdate(CreateSql);
     
