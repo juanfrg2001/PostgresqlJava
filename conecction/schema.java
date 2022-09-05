@@ -67,5 +67,18 @@ public class schema {
         }
 
     }
+
+    public Connection connection(){
+        Connection connect = null;
+        try{
+            connect = DriverManager.getConnection(
+                "jdbc:postgresql://localhost:5432/PostgresqlJava",
+                "postgres", "root");
+            javaPostgreSQLBasic.setConnection(c);
+        }catch(java.sql.SQLException sqle){
+            System.out.println("Error: " + sqle);
+        }
+        return connect;       
+    }
     
 }

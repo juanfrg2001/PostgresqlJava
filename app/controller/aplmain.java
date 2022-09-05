@@ -1,16 +1,16 @@
 package app.controller;
 import conecction.conection;
-import app.controller.user_controller;
+import app.controller.empleado_controller;
 import conecction.schema;
-import app.model.user;
+import app.model.empleado;
 
 public class aplmain {
 
     public static void main(String[] args) {
         schema Schema = new schema();
-        user_controller cont_user = new user_controller();
+        empleado_controller cont_user = new empleado_controller();
         Schema.connectDatabase(); 
-        //Schema.createTables();
+        // Schema.createTables();
         cont_user.create("Juan", "juan", "felipe");
 
 

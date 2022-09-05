@@ -1,6 +1,7 @@
 package app.model;
 import java.sql.*;
 import conecction.conection;
+import conecction.schema;
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -11,7 +12,7 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import app.model.encrypt_password;
 
-public class user {
+public class empleado {
 
     Connection c = null;
 

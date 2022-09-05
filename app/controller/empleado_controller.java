@@ -1,19 +1,16 @@
 package app.controller;
 import java.sql.*;
-
-import javax.swing.plaf.TreeUI;
-
 import conecction.conection;
-import app.model.user;
+import app.model.empleado;
 import conecction.schema;
 
-public class user_controller {
+public class empleado_controller {
 
     Connection c = null;
     String CreateSql = null;
     Statement stmt = null;
     conection javaPostgreSQLBasic = new conection(); 
-    user user = new user();
+    empleado user = new empleado();
     schema Schema = new schema();
 
     /**
@@ -23,15 +20,13 @@ public class user_controller {
      */
     public void create(String nombre, String usern_name, String contrasena){
         try{
-            c = DriverManager.getConnection(
-                "jdbc:postgresql://localhost:5432/PostgresqlJava",
-                "postgres", "root");
-
+            c = Schema.connection();
             javaPostgreSQLBasic.setConnection(c);
+
             stmt = c.createStatement(); 
             System.out.println("Opened database successfully");
             String encrypt = user.encrypt_password(contrasena);
-            CreateSql = "INSERT INTO Usuario (name,user_name,password) " + "values ('"++"'+'"+nombre+"', '"+usern_name+"', '"+encrypt+"');";
+            CreateSql = "INSERT INTO Usuario (name,user_name,password) " + "values ('"+nombre+"', '"+usern_name+"', '"+encrypt+"');";
             stmt.executeUpdate(CreateSql);
             stmt.close();
             c.close();
