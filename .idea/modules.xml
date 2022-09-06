@@ -5,4 +5,9 @@
       <module fileurl="file://$PROJECT_DIR$/PostgresqlJava.iml" filepath="$PROJECT_DIR$/PostgresqlJava.iml" />
     </modules>
   </component>
+  <dependency>
+    <groupId>commons-io</groupId>
+    <artifactId>commons-io</artifactId>
+    <version>2.6</version>
+  </dependency>
 </project>
