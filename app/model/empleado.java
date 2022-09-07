@@ -77,7 +77,7 @@ public class empleado {
             javaPostgreSQLBasic.setConnection(c);
             stmt = c.createStatement();
             System.out.println(desencrypt_password(password));
-            String sql = "SELECT * FROM public.usuario WHERE(user_name = '"+user_name+"' AND password = '"+encrypt_password(password)+"')";
+            String sql = "SELECT * FROM usuario WHERE(user_name = '"+user_name+"' AND user_password = '"+encrypt_password(password)+"')";
             rs = stmt.executeQuery(sql);
             validator = rs.next();
 

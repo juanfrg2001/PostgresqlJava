@@ -15,7 +15,7 @@ public class novedad_controller {
     empleado user = new empleado();
     schema Schema = new schema();
 
-    public void create(int empleado_id, Date fecha_novedad, boolean novedad_incapacidad, boolean novedad_vacaciones, int num_dias_trabajados, int bonificacion, int transporte){
+    public void create(int empleado_id, String fecha_novedad, boolean novedad_incapacidad, boolean novedad_vacaciones, int num_dias_trabajados, String bonificacion, String transporte){
         try{
             c = Schema.connection();
             javaPostgreSQLBasic.setConnection(c);

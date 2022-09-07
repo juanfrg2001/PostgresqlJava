@@ -13,23 +13,9 @@ import java.util.ArrayList;
 public class aplmain {
 
     public static void main(String[] args) {
+
         schema Schema = new schema();
-        Schema.connectDatabase();
-        Schema.createUser();
-        Schema.createTablesNomina();
-        Schema.createTableEmpleado();
-        Schema.createTableNovedades();
-
-        lectura_xlsx lec = new lectura_xlsx();
-        try{
-            System.out.println(lec.readExcelNomina());
-        }catch (Exception e){
-            System.out.println(e);
-        }
-
-
-
-
+        empleado_controller emp = new empleado_controller();
         empleado_controller cont_user = new empleado_controller();
 
     }

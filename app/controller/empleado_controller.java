@@ -3,6 +3,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
 
+import app.model.consultas;
+import app.model.operaciones.lectura_xlsx;
 import app.view.PanelInicio;
 import app.view.view;
 import conecction.conection;
@@ -14,14 +16,15 @@ import javax.swing.*;
 
 public class empleado_controller implements ActionListener {
 
-    Connection c = null;
-    String CreateSql = null;
-    Statement stmt = null;
-    conection javaPostgreSQLBasic = new conection();
+    private Connection c = null;
+    private String CreateSql = null;
+    private Statement stmt = null;
+    private conection javaPostgreSQLBasic = new conection();
+    private view vista = new view();
+    private empleado user = new empleado();
+    private schema Schema = new schema();
 
-    view vista = new view();
-    empleado user = new empleado();
-    schema Schema = new schema();
+    private consultas consulta = new consultas();
 
     public empleado_controller(){
         asignarOyentes(this);
@@ -29,6 +32,15 @@ public class empleado_controller implements ActionListener {
 
     private void asignarOyentes(ActionListener escuchador) {
         vista.getpInicial().getLogin().addActionListener(escuchador);
+        vista.getpPrincipal().getCargarBD().addActionListener(escuchador);
+        vista.getpPrincipal().getConsulta1().addActionListener(escuchador);
+        vista.getpPrincipal().getConsulta2().addActionListener(escuchador);
+        vista.getpPrincipal().getConsulta3().addActionListener(escuchador);
+        vista.getpPrincipal().getConsulta4().addActionListener(escuchador);
+        vista.getpPrincipal().getConsulta5().addActionListener(escuchador);
+        vista.getpPrincipal().getConsulta6().addActionListener(escuchador);
+        vista.getpPrincipal().getConectarBD().addActionListener(escuchador);
+        vista.getpPrincipal().getCargartxt().addActionListener(escuchador);
 
     }
 
@@ -44,9 +56,53 @@ public class empleado_controller implements ActionListener {
             }else{
                 JOptionPane.showMessageDialog(null, "Not login");
             }
+        }
+        if(vista.getpPrincipal().getCargartxt() == e.getSource()){
+            JOptionPane.showMessageDialog(null, "Txt ya se encuentra cargado");
+        }
 
+        if(vista.getpPrincipal().getConectarBD() == e.getSource()){
+            Schema.connectDatabase();
+            JOptionPane.showMessageDialog(null, "Se a conectado a la BD");
+        }
+
+        if(vista.getpPrincipal().getCargarBD() == e.getSource()){
+            Schema.connectDatabase();
+            Schema.createUser();
+            Schema.createTablesNomina();
+            Schema.createTableEmpleado();
+            Schema.createTableNovedades();
+
+            lectura_xlsx lec = new lectura_xlsx();
+            try{
+                //System.out.println(lec.readExcelNomina());
+                System.out.println(lec.readExcelNovedades());
+            }catch (Exception i){
+                System.out.println(i);
+            }
 
         }
+
+        if(vista.getpPrincipal().getConsulta1() == e.getSource()){
+            JOptionPane.showMessageDialog(null, consulta.consulta1());
+        }
+        if(vista.getpPrincipal().getConsulta2() == e.getSource()){
+            JOptionPane.showMessageDialog(null, consulta.consulta2());
+        }
+        if(vista.getpPrincipal().getConsulta3() == e.getSource()){
+            JOptionPane.showMessageDialog(null, consulta.consulta3());
+        }
+        if(vista.getpPrincipal().getConsulta4() == e.getSource()){
+            JOptionPane.showMessageDialog(null, consulta.consulta4());
+        }
+        if(vista.getpPrincipal().getConsulta5() == e.getSource()){
+            JOptionPane.showMessageDialog(null, consulta.consulta5());
+        }
+        if(vista.getpPrincipal().getConsulta6() == e.getSource()){
+            JOptionPane.showMessageDialog(null, consulta.consulta6());
+        }
+
+
 
     }
 
@@ -60,6 +116,21 @@ public class empleado_controller implements ActionListener {
             stmt.close();
             c.close();
         
+        }catch (java.sql.SQLException sqle) {
+            System.out.println("Error: " + sqle);
+        }
+    }
+
+    public void createUser(String nombre, String user_name, String user_password){
+        try{
+            c = Schema.connection();
+            javaPostgreSQLBasic.setConnection(c);
+            stmt = c.createStatement();
+            CreateSql = "INSERT INTO usuario (id, nombre,user_name ,user_password) " + "VALUES (3,'"+nombre+"', '"+user_name+"', '"+user.encrypt_password(user_password)+"');";
+            stmt.executeUpdate(CreateSql);
+            stmt.close();
+            c.close();
+
         }catch (java.sql.SQLException sqle) {
             System.out.println("Error: " + sqle);
         }

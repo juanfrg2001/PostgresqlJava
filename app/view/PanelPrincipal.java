@@ -9,10 +9,19 @@ public class PanelPrincipal extends JPanel{
 
 	private JLabel fondo;
 	private JLabel fondocliente;
+
+
+
 	private JButton consulta1;
 	private JButton Consulta2;
 	private JButton Consulta3;
 	private JButton consulta4;
+
+
+
+	private JButton consulta5;
+
+	private JButton consulta6;
 	private JButton conectarBD;
 	private JButton cargartxt;
 	private JTextArea outputarea;
@@ -53,6 +62,12 @@ public class PanelPrincipal extends JPanel{
 		
 		consulta4 = new JButton("Consulta 4");
 		consulta4.setBounds(35,350,172,42);
+
+		consulta5 = new JButton("Consulta 5");
+		consulta5.setBounds(35,380,172,42);
+
+		consulta6 = new JButton("Consulta 6");
+		consulta6.setBounds(35,410,172,42);
 		
 		cargartxt = new JButton("Cargar txt");
 		cargartxt.setBounds(35,25,172,42);
@@ -80,34 +95,118 @@ public class PanelPrincipal extends JPanel{
 		fondocliente.add(Consulta2);
 		fondocliente.add(Consulta3);
 		fondocliente.add(consulta4);
+		fondocliente.add(consulta5);
+		fondocliente.add(consulta6);
 		fondocliente.add(outputL);
 		fondocliente.add(cargartxt);
 		fondocliente.add(CargarBD);
 		fondocliente.add(conectarBD);
 		fondocliente.add(outputarea);
 	}
+	public JLabel getFondo() {
+		return fondo;
+	}
+
+	public void setFondo(JLabel fondo) {
+		this.fondo = fondo;
+	}
+
 	public JLabel getFondocliente() {
 		return fondocliente;
 	}
-	public JButton getInfo() {
+
+	public void setFondocliente(JLabel fondocliente) {
+		this.fondocliente = fondocliente;
+	}
+
+	public JButton getConsulta1() {
 		return consulta1;
 	}
-	public JButton getPareja() {
+
+	public void setConsulta1(JButton consulta1) {
+		this.consulta1 = consulta1;
+	}
+
+	public JButton getConsulta2() {
 		return Consulta2;
 	}
-	public JButton getCredito() {
+
+	public void setConsulta2(JButton consulta2) {
+		Consulta2 = consulta2;
+	}
+
+	public JButton getConsulta3() {
 		return Consulta3;
 	}
-	public JButton getCerrar() {
+
+	public void setConsulta3(JButton consulta3) {
+		Consulta3 = consulta3;
+	}
+
+	public JButton getConsulta4() {
 		return consulta4;
 	}
 
-	public JButton getSolicitarsobrecupo() {
+	public void setConsulta4(JButton consulta4) {
+		this.consulta4 = consulta4;
+	}
+
+	public JButton getConectarBD() {
+		return conectarBD;
+	}
+
+	public void setConectarBD(JButton conectarBD) {
+		this.conectarBD = conectarBD;
+	}
+
+	public JButton getCargartxt() {
 		return cargartxt;
 	}
-	public JButton getGenerarextracto() {
+
+	public void setCargartxt(JButton cargartxt) {
+		this.cargartxt = cargartxt;
+	}
+
+	public JTextArea getOutputarea() {
+		return outputarea;
+	}
+
+	public void setOutputarea(JTextArea outputarea) {
+		this.outputarea = outputarea;
+	}
+
+	public JLabel getOutputL() {
+		return outputL;
+	}
+
+	public void setOutputL(JLabel outputL) {
+		this.outputL = outputL;
+	}
+
+	public JButton getCargarBD() {
 		return CargarBD;
 	}
+
+	public void setCargarBD(JButton cargarBD) {
+		CargarBD = cargarBD;
+	}
+
+	public JButton getConsulta5() {
+		return consulta5;
+	}
+
+	public void setConsulta5(JButton consulta5) {
+		this.consulta5 = consulta5;
+	}
+
+	public JButton getConsulta6() {
+		return consulta6;
+	}
+
+	public void setConsulta6(JButton consulta6) {
+		this.consulta6 = consulta6;
+	}
+
 }
 	
 	

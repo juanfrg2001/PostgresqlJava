@@ -48,7 +48,7 @@ public class schema {
 
             stmt = c.createStatement();
 
-            CreateSql = "CREATE TABLE usuario (id int NOT NULL PRIMARY KEY, nombre varchar(50), user_name  varchar(260), password varchar(260));";
+            CreateSql = "CREATE TABLE usuario (id int NOT NULL PRIMARY KEY, nombre varchar(50), user_name  varchar(260), user_password varchar(260));";
 
             stmt.executeUpdate(CreateSql);
 
@@ -133,10 +133,10 @@ public class schema {
 
             stmt = c.createStatement();
 
-            String CreateNovedad = "CREATE TABLE novedad (novedad_id SERIAL NOT NULL PRIMARY KEY, empleado_id int,fecha_novedad date, novedad_incapacidad boolean,novedad_vacaciones boolean,num_dias_trabajados int,bonificacion int,transporte int,CONSTRAINT fk_empleado_id FOREIGN KEY(empleado_id) REFERENCES empleado(empleado_id)); ";
+            String CreateNovedad = "CREATE TABLE novedad (novedad_id SERIAL NOT NULL PRIMARY KEY, empleado_id int,fecha_novedad varchar(50), novedad_incapacidad boolean,novedad_vacaciones boolean,num_dias_trabajados int,bonificacion varchar(50),transporte varchar(50),CONSTRAINT fk_empleado_id FOREIGN KEY(empleado_id) REFERENCES empleado(empleado_id)); ";
 
-            String CreateVacaciones = "CREATE TABLE vacacion (vacacion_id SERIAL NOT NULL PRIMARY KEY, novedad_id int NOT NULL, num_dias_vacaciones int,fecha_inicio date, fecha_fin date, CONSTRAINT fk_novedad_id FOREIGN KEY(novedad_id) REFERENCES novedad(novedad_id));";
-            String CreateIncapacidad = "CREATE TABLE incapacidad (incapacidad_id SERIAL NOT NULL PRIMARY KEY, novedad_id int NOT NULL, num_dias_incapacidad int,fecha_inicio date, fecha_fin date, CONSTRAINT fk_novedad_id2 FOREIGN KEY(novedad_id) REFERENCES novedad(novedad_id));";
+            String CreateVacaciones = "CREATE TABLE vacacion (vacacion_id SERIAL NOT NULL PRIMARY KEY, novedad_id int NOT NULL, num_dias_vacaciones int,fecha_inicio varchar(50), fecha_fin varchar(50), CONSTRAINT fk_novedad_id FOREIGN KEY(novedad_id) REFERENCES novedad(novedad_id));";
+            String CreateIncapacidad = "CREATE TABLE incapacidad (incapacidad_id SERIAL NOT NULL PRIMARY KEY, novedad_id int NOT NULL, num_dias_incapacidad int,fecha_inicio varchar(50), fecha_fin varchar(50), CONSTRAINT fk_novedad_id2 FOREIGN KEY(novedad_id) REFERENCES novedad(novedad_id));";
 
 
             stmt.executeUpdate(CreateNovedad);

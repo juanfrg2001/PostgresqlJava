@@ -15,14 +15,13 @@ public class incapacidad_novedad_controller {
     empleado user = new empleado();
     schema Schema = new schema();
 
-    public void create(int novedad_id ,int num_dias_vacaciones, Date fecha_inicio, Date fecha_fin){
+    public void create(int novedad_id ,int num_dias_vacaciones, String fecha_inicio, String fecha_fin){
         try{
             c = Schema.connection();
             javaPostgreSQLBasic.setConnection(c);
 
-            stmt = c.createStatement(); 
-            System.out.println("Opened database successfully");
-            CreateSql = "INSERT INTO Incapacidad (novedad_id,num_dias_vacaciones,fecha_inicio,fecha_fin) " + "values ('"+novedad_id+"','"+num_dias_vacaciones+"','"+fecha_inicio+"','"+fecha_fin+"');";
+            stmt = c.createStatement();
+            CreateSql = "INSERT INTO incapacidad(novedad_id,num_dias_incapacidad,fecha_inicio,fecha_fin) " + "values ('"+novedad_id+"','"+num_dias_vacaciones+"','"+fecha_inicio+"','"+fecha_fin+"');";
             stmt.executeUpdate(CreateSql);
             stmt.close();
             c.close();

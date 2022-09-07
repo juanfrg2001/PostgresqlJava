@@ -10,6 +10,11 @@ public class novedad {
     Statement stmt = null;
     schema sh = new schema();
     conection con = new conection();
+    ResultSet rs=null;
+
+    schema Schema = new schema();
+
+    conection javaPostgreSQLBasic = new conection();
 
     public boolean is_novedad_incapacidad(int empleado_id){
         Boolean validator = false;
@@ -37,6 +42,30 @@ public class novedad {
     
         }
         return validator;
+    }
+
+    public int get_id_novedad(int novedad){
+        int result = 0;
+
+        try{
+            c = Schema.connection();
+            javaPostgreSQLBasic.setConnection(c);
+            stmt = c.createStatement();
+            String sql = "SELECT novedad_id FROM public.novedad WHERE(empleado_id = '"+novedad+"')";
+            rs = stmt.executeQuery(sql);
+            while(rs.next()){
+                result = Integer.parseInt(rs.getString(1));
+            }
+
+        }catch (Exception e){
+
+            System.err.println( e.getClass().getName()+": "+ e.getMessage() );
+
+            System.exit(0);
+
+        }
+
+        return result;
     }
     
 }
