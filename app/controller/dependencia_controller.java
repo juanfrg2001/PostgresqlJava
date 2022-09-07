@@ -21,7 +21,7 @@ public class dependencia_controller {
 
             stmt = c.createStatement(); 
             System.out.println("Opened database successfully");
-            CreateSql = "INSERT INTO Dependencia (dependencia) " + "values ('"+dependencia+"');";
+            CreateSql = "INSERT INTO dependencia(dependencia) " + "values ('"+dependencia+"');";
             stmt.executeUpdate(CreateSql);
             stmt.close();
             c.close();

@@ -20,7 +20,7 @@ public class arl_controller {
 
             stmt = c.createStatement(); 
             System.out.println("Opened database successfully");
-            CreateSql = "INSERT INTO Arl (arl) " + "values ('"+arl+"');";
+            CreateSql = "INSERT INTO arl(arl) " + "values ('"+arl+"');";
             stmt.executeUpdate(CreateSql);
             stmt.close();
             c.close();

@@ -26,7 +26,7 @@ public class PanelPrincipal extends JPanel{
 	{
 		setSize(800,550);
 		setLayout(null);
-		
+		setVisible(false);
 		inicializarComponentes();
 	}
 	/**

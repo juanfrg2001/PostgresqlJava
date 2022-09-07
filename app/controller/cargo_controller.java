@@ -20,7 +20,7 @@ public class cargo_controller {
 
             stmt = c.createStatement(); 
             System.out.println("Opened database successfully");
-            CreateSql = "INSERT INTO Cargo (cargo)" + "values ('"+dependencia+"');";
+            CreateSql = "INSERT INTO cargo(cargo)" + "values ('"+dependencia+"');";
             stmt.executeUpdate(CreateSql);
             stmt.close();
             c.close();

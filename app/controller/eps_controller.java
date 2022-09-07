@@ -20,7 +20,7 @@ public class eps_controller {
 
             stmt = c.createStatement(); 
             System.out.println("Opened database successfully");
-            CreateSql = "INSERT INTO Eps (eps) " + "values ('"+eps+"');";
+            CreateSql = "INSERT INTO eps(eps) " + "values ('"+eps+"');";
             stmt.executeUpdate(CreateSql);
             stmt.close();
             c.close();

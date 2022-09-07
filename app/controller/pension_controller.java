@@ -22,7 +22,7 @@ public class pension_controller {
 
             stmt = c.createStatement(); 
             System.out.println("Opened database successfully");
-            CreateSql = "INSERT INTO Pension (pension) " + "values ('"+pension+"');";
+            CreateSql = "INSERT INTO pension(pension) " + "values ('"+pension+"');";
             stmt.executeUpdate(CreateSql);
             stmt.close();
             c.close();
